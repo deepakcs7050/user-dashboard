@@ -21,8 +21,9 @@ import {
   Dashboard as DashboardIcon,
   Task as TaskIcon,
   AccountCircle as AccountIcon,
-  Notifications as NotificationsIcon,
 } from '@mui/icons-material'
+import NotificationsPanel from '../components/NotificationsPanel'
+import mockTasks from '../data/mockData'
 
 const drawerWidth = 280
 
@@ -40,6 +41,16 @@ const MainLayout = () => {
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
     { text: 'Tasks', icon: <TaskIcon />, path: '/tasks' },
   ]
+
+  const lastFiveNotifications = mockTasks
+    .slice(-5)
+    .reverse()
+    .map((task) => ({
+      id: task.id,
+      title: task.name,
+      status: task.status as 'SUCCESS' | 'FAILED' | 'PENDING',
+      time: new Date(task.updatedAt).toLocaleString(),
+    }))
 
   const drawer = (
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -140,10 +151,8 @@ const MainLayout = () => {
           >
             Task Management System
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <IconButton color="inherit" sx={{ mr: 1 }}>
-              <NotificationsIcon />
-            </IconButton>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <NotificationsPanel notifications={lastFiveNotifications} />
             <Typography variant="body2" sx={{ display: { xs: 'none', sm: 'block' } }}>
               John Doe
             </Typography>

@@ -144,7 +144,6 @@ const TaskList = () => {
             columns={columns}
             defaultRowsPerPage={10}
             rowsPerPageOptions={[5, 10, 25]}
-            onRowClick={handleViewDetails}
             noDataMessage="No tasks found matching your criteria"
           />
         </Box>
