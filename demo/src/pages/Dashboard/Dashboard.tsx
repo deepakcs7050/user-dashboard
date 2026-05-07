@@ -26,6 +26,7 @@ import {
 } from 'recharts'
 import { fetchDashboardSummary } from '../../services/dashboard'
 import type { DashboardSummary } from '../../types/api'
+import User from '../../components/user'
 
 const statusItems = [
   { label: 'Success', key: 'success', color: '#22C55E' },
@@ -83,6 +84,7 @@ const Dashboard = () => {
             {data?.welcome ?? 'Welcome to your task management dashboard'}
           </Typography>
         </Box>
+        <User />
 
         {loading ? (
           <Box sx={{ display: 'grid', placeItems: 'center', minHeight: 300 }}>
