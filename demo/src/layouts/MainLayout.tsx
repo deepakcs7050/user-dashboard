@@ -20,6 +20,7 @@ import {
   Menu as MenuIcon,
   Dashboard as DashboardIcon,
   Task as TaskIcon,
+  ShoppingCart as ShoppingCartIcon,
   AccountCircle as AccountIcon,
 } from '@mui/icons-material'
 import NotificationsPanel from '../components/NotificationsPanel'
@@ -40,6 +41,7 @@ const MainLayout = () => {
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
     { text: 'Tasks', icon: <TaskIcon />, path: '/tasks' },
+    { text: 'Products', icon: <ShoppingCartIcon />, path: '/products' },
   ]
 
   const lastFiveNotifications = mockTasks
