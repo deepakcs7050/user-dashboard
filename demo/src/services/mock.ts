@@ -24,6 +24,7 @@ export const mockDashboardSummary = async (): Promise<DashboardSummary> => {
       failed: 8,
       pending: 13,
       total: 63,
+      successRate: '66.7%',
     },
   }
 }

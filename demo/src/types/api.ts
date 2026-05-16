@@ -17,6 +17,7 @@ export interface TaskSummary {
   failed: number
   pending: number
   total: number
+  successRate: string
 }
 
 export interface DashboardSummary {

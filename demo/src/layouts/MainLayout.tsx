@@ -1,35 +1,27 @@
 import { useState } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import {
-  AppBar,
-  Avatar,
   Box,
   CssBaseline,
   Drawer,
-  IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Toolbar,
   Typography,
-  useTheme,
 } from '@mui/material'
 import {
-  Menu as MenuIcon,
   Dashboard as DashboardIcon,
   Task as TaskIcon,
   ShoppingCart as ShoppingCartIcon,
-  AccountCircle as AccountIcon,
 } from '@mui/icons-material'
-import NotificationsPanel from '../components/NotificationsPanel'
+import MainHeader from '../components/MainHeader'
 import mockTasks from '../data/mockData'
 
-const drawerWidth = 280
+const drawerWidth = 260
 
 const MainLayout = () => {
-  const theme = useTheme()
   const navigate = useNavigate()
   const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -56,20 +48,21 @@ const MainLayout = () => {
 
   const drawer = (
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box sx={{ p: 3, borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
         <Typography
           variant="h6"
           noWrap
           component="div"
           sx={{
             fontWeight: 700,
-            color: theme.palette.primary.main,
+            color: '#FFFFFF',
             letterSpacing: -0.5,
+            fontSize: '1.25rem',
           }}
         >
-          Task Dashboard
+          Finance AI Dashboard
         </Typography>
-      </Toolbar>
+      </Box>
       <List sx={{ flexGrow: 1, pt: 2 }}>
         {menuItems.map((item) => {
           const isActive = location.pathname === item.path
@@ -84,28 +77,33 @@ const MainLayout = () => {
                   borderRadius: 2,
                   position: 'relative',
                   '&.Mui-selected': {
-                    backgroundColor: theme.palette.primary.main + '08',
-                    color: theme.palette.primary.main,
-                    borderLeft: '4px solid #2563EB',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    color: '#2563EB',
+                    borderLeft: '3px solid #2563EB',
                     '&:hover': {
-                      backgroundColor: theme.palette.primary.main + '12',
+                      backgroundColor: 'rgba(37, 99, 235, 0.15)',
                     },
                     '& .MuiListItemIcon-root': {
-                      color: theme.palette.primary.main,
+                      color: '#2563EB',
                     },
                   },
                   '&:hover': {
-                    backgroundColor: theme.palette.action.hover,
+                    backgroundColor: '#1F2937',
+                    color: '#FFFFFF',
+                    '& .MuiListItemIcon-root': {
+                      color: '#FFFFFF',
+                    },
                   },
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 48, color: isActive ? theme.palette.primary.main : 'inherit' }}>
+                <ListItemIcon sx={{ minWidth: 48, color: isActive ? '#2563EB' : '#D1D5DB' }}>
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText
                   primary={item.text}
                   primaryTypographyProps={{
                     fontWeight: isActive ? 600 : 500,
+                    color: isActive ? '#2563EB' : '#D1D5DB',
                   }}
                 />
               </ListItemButton>
@@ -117,58 +115,20 @@ const MainLayout = () => {
   )
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        elevation={1}
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-          backgroundColor: 'background.paper',
-          color: 'text.primary',
-          borderBottom: 1,
-          borderColor: 'divider',
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{
-              flexGrow: 1,
-              fontWeight: 600,
-              color: theme.palette.primary.main,
-            }}
-          >
-            Task Management System
-          </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <NotificationsPanel notifications={lastFiveNotifications} />
-            <Typography variant="body2" sx={{ display: { xs: 'none', sm: 'block' } }}>
-              John Doe
-            </Typography>
-            <Avatar sx={{ width: 36, height: 36, bgcolor: theme.palette.primary.main }}>
-              <AccountIcon />
-            </Avatar>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="navigation menu"
-      >
+      <MainHeader
+        title="Finance AI Dashboard"
+        notificationCount={lastFiveNotifications.length}
+        userName="John Doe"
+        notifications={lastFiveNotifications}
+      />
+      <Box sx={{ display: 'flex', flex: 1, marginTop: '72px' }}>
+        <Box
+          component="nav"
+          sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+          aria-label="navigation menu"
+        >
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -181,8 +141,10 @@ const MainLayout = () => {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
-              borderRight: 1,
-              borderColor: 'divider',
+              borderRight: '1px solid #E5E7EB',
+              marginTop: '72px',
+              height: 'calc(100vh - 72px)',
+              backgroundColor: '#111827',
             },
           }}
         >
@@ -195,8 +157,10 @@ const MainLayout = () => {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
-              borderRight: 1,
-              borderColor: 'divider',
+              borderRight: '1px solid #E5E7EB',
+              marginTop: '72px',
+              height: 'calc(100vh - 72px)',
+              backgroundColor: '#111827',
             },
           }}
           open
@@ -210,12 +174,13 @@ const MainLayout = () => {
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          backgroundColor: 'background.default',
-          minHeight: '100vh',
+          backgroundColor: '#F3F4F6',
+          minHeight: 'calc(100vh - 72px)',
+          overflowY: 'auto',
         }}
       >
-        <Toolbar />
         <Outlet />
+      </Box>
       </Box>
     </Box>
   )

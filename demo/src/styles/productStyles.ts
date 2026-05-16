@@ -3,12 +3,14 @@ import type { SxProps, Theme } from '@mui/material'
 export const pageContainer: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'column',
-  gap: 1.5,
+  gap: 3,
   width: '100%',
-  maxWidth: 1320,
+  maxWidth: 1400,
   margin: '0 auto',
-  px: { xs: 2, md: 3 },
-  py: { xs: 2, md: 3 },
+  px: { xs: 3, md: 4 },
+  py: { xs: 3, md: 4 },
+  backgroundColor: '#F3F4F6',
+  minHeight: '100vh',
 }
 
 export const headerRow: SxProps<Theme> = {

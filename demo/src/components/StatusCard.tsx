@@ -16,16 +16,17 @@ const StatusCard = ({ title, count, color, icon, onClick }: StatusCardProps) => 
   // Define background colors for icons based on status
   const getIconBackground = (color: string) => {
     switch (color) {
-      case '#16A34A': return '#DCFCE7' // light green for success
-      case '#DC2626': return '#FEE2E2' // light red for failed
+      case '#22C55E': return '#DCFCE7' // light green for success
+      case '#EF4444': return '#FEE2E2' // light red for failed
       case '#F59E0B': return '#FEF3C7' // light yellow for pending
+      case '#6B7280': return '#F3F4F6' // light gray for total
       default: return `${color}15`
     }
   }
 
   const content = (
-    <CardContent sx={{ px: 4, py: 4 }}>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={3}>
+    <CardContent sx={{ px: 3, py: 3 }}>
+      <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={2}>
         <Box>
           <Typography
             variant="overline"
@@ -33,14 +34,14 @@ const StatusCard = ({ title, count, color, icon, onClick }: StatusCardProps) => 
             sx={{
               letterSpacing: 1.2,
               fontWeight: 600,
-              fontSize: '0.75rem',
+              fontSize: '0.72rem',
               mb: 1,
             }}
           >
             {title}
           </Typography>
           <Typography
-            variant="h3"
+            variant="h4"
             sx={{
               fontWeight: 800,
               color: 'text.primary',
@@ -52,8 +53,8 @@ const StatusCard = ({ title, count, color, icon, onClick }: StatusCardProps) => 
         </Box>
         <Box
           sx={{
-            width: 72,
-            height: 72,
+            width: 56,
+            height: 56,
             display: 'grid',
             placeItems: 'center',
             borderRadius: '50%',
@@ -61,7 +62,7 @@ const StatusCard = ({ title, count, color, icon, onClick }: StatusCardProps) => 
             color: borderColor,
             transition: 'all 0.3s ease-in-out',
             '&:hover': {
-              transform: 'scale(1.1)',
+              transform: 'scale(1.05)',
               backgroundColor: `${borderColor}20`,
             },
           }}
