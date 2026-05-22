@@ -39,7 +39,7 @@ const theme = createTheme({
       contrastText: '#FFFFFF',
     },
     background: {
-      default: '#F3F4F6',
+      default: '#F5F7FA',
       paper: '#FFFFFF',
     },
     text: {
@@ -368,6 +368,40 @@ const theme = createTheme({
         },
       },
     },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          minHeight: 44,
+        },
+        flexContainer: {
+          gap: 8,
+        },
+        indicator: {
+          display: 'none',
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          borderRadius: 10,
+          fontSize: '0.9375rem',
+          fontWeight: 600,
+          minHeight: 44,
+          padding: '10px 18px',
+          color: '#6B7280',
+          transition: 'all 0.2s ease-in-out',
+          '&.Mui-selected': {
+            backgroundColor: '#EFF6FF',
+            color: '#2563EB',
+          },
+          '&:hover': {
+            backgroundColor: '#F8FAFC',
+          },
+        },
+      },
+    },
     MuiTableHead: {
       styleOverrides: {
         root: {
@@ -395,7 +429,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           '&:hover': {
-            backgroundColor: '#F9FAFB',
+            backgroundColor: '#F8FAFC',
           },
         },
       },

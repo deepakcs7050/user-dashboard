@@ -24,3 +24,14 @@ export interface DashboardSummary {
   tasks: TaskSummary
   welcome: string
 }
+
+export interface UserTask {
+  id: string
+  userName: string
+  status: string,
+  email: string,
+  agent: string
+  process: string
+  source: string
+  createdAt: string
+}
