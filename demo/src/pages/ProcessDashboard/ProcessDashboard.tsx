@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import { Box, Grid, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import {
   AccountBalanceOutlined,
   AccountBalanceWalletOutlined,
@@ -26,13 +27,19 @@ const iconMap: Record<string, React.ElementType> = {
 }
 
 const ProcessDashboard = () => {
+  const navigate = useNavigate()
+
   const handleStatusClick = useCallback((title: string, status: string) => {
     console.info(`Status clicked: ${title} • ${status}`)
   }, [])
 
-  const handleViewDetails = useCallback((title: string) => {
-    console.info(`View details requested for ${title}`)
-  }, [])
+  const handleViewDetails = useCallback(
+    (title: string) => {
+      console.info(`View details requested for ${title}`)
+      navigate('/agents')
+    },
+    [navigate]
+  )
 
   return (
     <Box sx={{ backgroundColor: '#F8FAFC', minHeight: '100vh', py: { xs: 3, md: 4 } }}>

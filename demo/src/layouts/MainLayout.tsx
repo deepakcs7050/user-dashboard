@@ -16,6 +16,7 @@ import {
   Task as TaskIcon,
   ShoppingCart as ShoppingCartIcon,
   AccountCircle as PersonIcon,
+  Receipt as ReceiptIcon,
 } from '@mui/icons-material'
 import MainHeader from '../components/MainHeader'
 import mockTasks from '../data/mockData'
@@ -35,6 +36,7 @@ const MainLayout = () => {
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
     { text: 'Tasks', icon: <TaskIcon />, path: '/tasks' },
     { text: 'Products', icon: <ShoppingCartIcon />, path: '/products' },
+    { text: 'Invoice Review', icon: <ReceiptIcon />, path: '/invoice-review' },
     { text: 'Users', icon: <PersonIcon />, path: '/users' },
     { text: 'Processes', icon: <DashboardIcon />, path: '/processes' },
   ]
