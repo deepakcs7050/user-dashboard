@@ -7,6 +7,7 @@ import AgentList from '../pages/Agents/AgentList'
 import LoginPage from '../pages/Auth/LoginPage'
 import ProductListingPage from '../pages/Products/ProductListingPage'
 import InvoiceReview from '../pages/InvoiceReview'
+import InvoiceDetailsLog from '../pages/InvoiceDetailsLog'
 import MainLayout from '../layouts/MainLayout'
 import { RequireAuth } from '../components/RequireAuth'
 import User from '../pages/User/User'
@@ -24,6 +25,7 @@ const AppRoutes = () => {
         <Route path="tasks/:id" element={<TaskDetails />} />
         <Route path="products" element={<ProductListingPage />} />
         <Route path="invoice-review" element={<InvoiceReview />} />
+        <Route path="invoice-details-log" element={<InvoiceDetailsLog />} />
         <Route path="processes" element={<ProcessDashboard />} />
         <Route path="agents" element={<AgentList />} />
         <Route path="users" element={<User />} />
