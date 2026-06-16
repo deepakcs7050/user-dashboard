@@ -39,6 +39,7 @@ const MainLayout = () => {
     { text: 'Invoice Review', icon: <ReceiptIcon />, path: '/invoice-review' },
     { text: 'Users', icon: <PersonIcon />, path: '/users' },
     { text: 'Processes', icon: <DashboardIcon />, path: '/processes' },
+    {text: 'invoice-details-log', icon: <ReceiptIcon />, path: '/invoice-details-log' },
   ]
 
   const lastFiveNotifications = mockTasks
