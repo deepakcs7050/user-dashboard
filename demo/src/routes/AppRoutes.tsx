@@ -12,6 +12,7 @@ import MainLayout from '../layouts/MainLayout'
 import { RequireAuth } from '../components/RequireAuth'
 import User from '../pages/User/User'
 import UserDetails from '../pages/userDetails'
+import RoleAccess from '../pages/RoleAccess/roleAccess'
 
 const AppRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const AppRoutes = () => {
         <Route path="agents" element={<AgentList />} />
         <Route path="users" element={<User />} />
         <Route path="users/:id" element={<UserDetails />} />
+        <Route path="role-access" element={<RoleAccess />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/login" replace />} />
