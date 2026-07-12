@@ -46,7 +46,7 @@ const ProcessDashboard = () => {
       <Box sx={{ maxWidth: 1400, mx: 'auto', px: { xs: 2, md: 3 } }}>
         <Box sx={{ mb: 4 }}>
           <Typography variant="h4" fontWeight={800} sx={{ color: '#111827', mb: 1 }}>
-            Process Operations Dashboard
+            Process Operations Dashboard Deepak
           </Typography>
           <Typography variant="body1" sx={{ color: '#475569', maxWidth: 680 }}>
             Live process cards for every key enterprise workflow. Click any status row to inspect the selected process state or view full details.
