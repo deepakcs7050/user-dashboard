@@ -66,6 +66,8 @@ const Dashboard = () => {
     return stats.total ? Math.round((stats.success / stats.total) * 100) : 0
   }, [stats])
 
+
+
   const chartData = useMemo(() => {
     return statusItems.map(item => {
       const value = Number(stats[item.key]);
@@ -105,7 +107,7 @@ const Dashboard = () => {
                 }}
               >
                 <StatusCard
-                  title="Total Tasks"
+                  title="Total Task"
                   count={stats.total}
                   color="#6B7280"
                   icon={<Task sx={{ fontSize: 32 }} />}
