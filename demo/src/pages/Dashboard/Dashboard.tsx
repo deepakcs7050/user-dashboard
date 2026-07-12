@@ -68,7 +68,8 @@ const Dashboard = () => {
 
   const chartData = useMemo(() => {
     return statusItems.map(item => {
-      const value = stats[item.key]
+      const value = Number(stats[item.key]);
+
       return {
         ...item,
         value,

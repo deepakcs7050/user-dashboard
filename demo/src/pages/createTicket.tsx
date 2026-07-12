@@ -9,7 +9,6 @@ import {
   TextField,
   MenuItem,
   Typography,
-  Paper,
 } from '@mui/material'
 
 interface CreateTicketFormData {
